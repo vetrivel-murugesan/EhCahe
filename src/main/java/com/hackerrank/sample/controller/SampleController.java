@@ -40,6 +40,11 @@ public class SampleController {
 		return ResponseEntity.status(HttpStatus.OK).body(counterInput);
 	}
 	
+	@RequestMapping(path = "/", method = RequestMethod.GET)
+	public ResponseEntity<StringResponse> sayHello() {
+		StringResponse response = new StringResponse("Default Hello World!");
+		return ResponseEntity.status(HttpStatus.OK).body(response);
+	}
 	
 	private void addToCache(int counter2) {
 		cache.put(new Element(counter2, counter2*counter2));
